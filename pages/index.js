@@ -1,7 +1,17 @@
-import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-  return <div className={styles.container}></div>;
+  return (
+    <>
+      <div className={styles.container}>
+        <h1>Employee App</h1>
+        <ul className={styles.list}>
+          <li>Make a custom hook for fetching the data</li>
+          <li>Create React Hook Form</li>
+          <li>Use React Query Mutation to update data</li>
+          <li>Delete Data</li>
+        </ul>
+      </div>
+    </>
+  );
 }
