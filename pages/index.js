@@ -9,6 +9,9 @@ export default function Home() {
           <li>Make a custom hook for fetching the data</li>
           <li>Create React Hook Form</li>
           <li>Use React Query Mutation to update data</li>
+          <li>Use ky-data-fetcher</li>
+          <li>Use ky-data-fetcher2</li>
+          <li>Use ky-data-fetcher3</li>
           <li>Delete Data</li>
         </ul>
       </div>
