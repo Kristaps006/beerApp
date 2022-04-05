@@ -1,9 +1,6 @@
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-<<<<<<< HEAD
-  return <></>;
-=======
   return (
     <>
       <div className={styles.container}>
@@ -20,5 +17,4 @@ export default function Home() {
       </div>
     </>
   );
->>>>>>> e22fd8994c71647fcfed24bf6305852d938eec87
 }
