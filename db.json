@@ -1,19 +1,31 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+    "posts": [{
+        "id": 1,
+        "name": "Satheesh",
+        "email": "Sat@mail.com",
+        "address": "South street"
+    }, {
+        "id": 2,
+        "name": "John",
+        "email": "john@mail.com",
+        "address": "North street"
+    }, {
+        "id": 3,
+        "name": "Robert",
+        "email": "robert@mail.com",
+        "address": "East street"
+    }, {
+        "id": 4,
+        "name": "Mani",
+        "email": "mani@mail.com",
+        "address": "West street"
+    }],
+    "comments": [{
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+    }],
+    "profile": {
+        "name": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
   }
-}
