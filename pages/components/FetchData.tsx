@@ -3,13 +3,13 @@ import { useQuery } from "react-query";
 
 
 export const FetchData = () => {
-
     const fetchingData = fetch('http://localhost:3000/posts').then((res) =>
     res.json())
 
-    // Hvad står 'posts' for? It's the name/key of the query
+     // Hvad står 'posts' for? It's the name/key of the query
     const { isSuccess, isLoading, error, data } = useQuery('posts', () => fetchingData
     );
+
   
     //When we waiting/fetching for data
     if (isLoading) return 'Loading...';
@@ -23,8 +23,8 @@ export const FetchData = () => {
     return (
       <>
       <ul>
-          {data.map(({ name, id }) => (
-          <li key={id}>{name}</li>
+          {data.map(({ id, name }) => (
+            <li key={id}>Name: {name}</li>
           ))}
         </ul>
       </>
