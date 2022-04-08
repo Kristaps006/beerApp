@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-
+import ky from "ky";
 
 export const FetchData = () => {
     const fetchingData = fetch('http://localhost:3000/posts').then((res) =>
@@ -30,4 +30,3 @@ export const FetchData = () => {
       </>
     )
 }
-  

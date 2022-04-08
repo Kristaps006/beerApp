@@ -9,7 +9,7 @@ import ky from "ky";
 
 export const UserForm = () => {
   const methods = useForm();
-
+  
   //Adding post to db
   const addUser = useMutation((newData) => 
     ky.post("http://localhost:3000/posts", {
