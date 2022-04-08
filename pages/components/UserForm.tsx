@@ -4,15 +4,21 @@ import { useForm } from "react-hook-form";
 import { Button } from "../features/form/button";
 import { Form } from "../features/form/form";
 import { Input } from "../features/form/input";
+import { useMutation } from "react-query";
 import ky from "ky";
 
 export const UserForm = () => {
   const methods = useForm();
+  const addUser = useMutation((newData) =>
+    ky
+      .post("http://localhost:3000/posts", {
+        json: newData,
+      })
+      .json()
+  );
 
   const onSubmit = (data) => {
-    ky.post("http://localhost:3000/posts", {
-      json: data,
-    }).json();
+    addUser.mutate(data);
   };
 
   return (

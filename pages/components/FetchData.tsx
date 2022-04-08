@@ -3,9 +3,8 @@ import { useQuery } from "react-query";
 import ky from "ky";
 
 export const FetchData = () => {
-  const fetchingData = ky.get("http://localhost:3000/posts").json();
+  const fetchingData = ky.get("http://localhost:3000/posts").json().then();
 
-  console.log(fetchingData);
   const { isSuccess, isLoading, error, data } = useQuery(
     "posts",
     () => fetchingData
