@@ -1,31 +1,13 @@
 {
   "posts": [
     {
-      "id": 1,
-      "name": "Satheesh",
-      "email": "Sat@mail.com",
-      "address": "South street"
-    },
-    {
-      "id": 2,
-      "name": "John",
-      "email": "john@mail.com",
-      "address": "North street"
-    },
-    {
-      "name": "Keis",
-      "email": "Meis",
-      "address": "Pilsener",
-      "id": 3
+      "name": "dfd",
+      "email": "fdf",
+      "address": "dfdf",
+      "id": 8
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

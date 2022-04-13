@@ -1,32 +1,68 @@
 import React, { useEffect, useState } from "react";
-import { useQuery } from "react-query";
+import {
+  dehydrate,
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from "react-query";
 import ky from "ky";
 
-export const FetchData = () => {
-    const fetchingData = fetch('http://localhost:3000/posts').then((res) =>
-    res.json())
-
-     // Hvad står 'posts' for? It's the name/key of the query
-    const { isSuccess, isLoading, error, data } = useQuery('posts', () => fetchingData
-    );
-
-  
-    //When we waiting/fetching for data
-    if (isLoading) return 'Loading...';
-  
-    //If there is an error fetching the data
-    // if (error) return 'An error has occurred: ' + error.message
-  
-    //If fetching the data is success and the data is available
-    // if(isSuccess) return 'Wuhu, the data available!'
-    
-    return (
-      <>
-      <ul>
-          {data.map(({ id, name }) => (
-            <li key={id}>Name: {name}</li>
-          ))}
-        </ul>
-      </>
-    )
+export interface User {
+  [x: string]: any;
+  name: string;
+  email: string;
+  address: string;
 }
+
+export const fetchingData = () =>
+  ky.get(`http://localhost:3000/posts`).json<User>();
+
+export const deleteData = (id: any) =>
+  ky.delete(`http://localhost:3000/posts/${id}`).json<User>();
+
+export const FetchData = () => {
+  const { data, isFetching, isLoading } = useQuery("names", fetchingData, {});
+
+  const queryClient = useQueryClient();
+
+  const deleteId = useMutation(deleteData, {
+    //onSuccess: () => queryClient.invalidateQueries("names"),
+
+    onMutate: (data: any) => {
+      const prevUser = queryClient.getQueryData("name");
+      console.log(prevUser, "user");
+
+      // queryClient.setQueriesData("names", prevUser);
+      console.log(data, "prev");
+    },
+  });
+
+  return (
+    <>
+      <ul>
+        {data?.map(({ id, name, email, address }) => (
+          <>
+            <li key={id} style={{ marginTop: "20px" }}>
+              Name: {name}
+            </li>
+            <li>Email: {email}</li>
+            <li>Address: {address}</li>
+            <button onClick={() => deleteId.mutate(id)}>Delete</button>
+          </>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export const getStaticProps = async () => {
+  const queryClient = new QueryClient(); //?Ensures data is not shared between requests */
+
+  await queryClient.prefetchQuery("names", fetchingData);
+  return {
+    props: {
+      dehydrateState: dehydrate(queryClient),
+    },
+  };
+};
