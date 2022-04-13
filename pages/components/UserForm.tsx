@@ -30,7 +30,7 @@ export const UserForm = () => {
 
   const onSubmit = (data: any) => {
     addUser.mutate(data);
-    reset();
+    //reset();
   };
 
   return (

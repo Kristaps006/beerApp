@@ -1,127 +1,13 @@
 {
   "posts": [
     {
-      "id": 1,
-      "name": "Satheesh",
-      "email": "Sat@mail.com",
-      "address": "South street"
-    },
-    {
-      "id": 2,
-      "name": "John",
-      "email": "john@mail.com",
-      "address": "North street"
-    },
-    {
-      "name": "Keis",
-      "email": "Meis",
-      "address": "Pilsener",
-      "id": 3
-    },
-    {
-      "name": "sds",
-      "email": "dsds",
-      "address": "sds",
-      "id": 4
-    },
-    {
-      "name": "sds",
-      "email": "dsds",
-      "address": "sds",
-      "id": 5
-    },
-    {
-      "name": "some ",
-      "email": "kd",
-      "address": "kkds",
-      "id": 6
-    },
-    {
-      "name": "herber",
-      "email": "little",
-      "address": "gy",
-      "id": 23
-    },
-    {
-      "name": "works ",
-      "email": "like ",
-      "address": "",
-      "id": 24
-    },
-    {
-      "name": "newName",
-      "email": "kris",
-      "address": "kdskd",
-      "id": 25
-    },
-    {
-      "name": "",
-      "email": "",
-      "address": "",
-      "id": 26
-    },
-    {
-      "name": "HerTheo",
-      "email": "Kdids ",
-      "address": "jJdksdjks",
-      "id": 27
-    },
-    {
-      "name": "ddsd",
-      "email": "dsds",
-      "address": "sd",
-      "id": 28
-    },
-    {
-      "name": "fdfd",
+      "name": "dfd",
       "email": "fdf",
-      "address": "dfd",
-      "id": 29
-    },
-    {
-      "name": "iiii",
-      "email": "yyy",
-      "address": "yyyy",
-      "id": 30
-    },
-    {
-      "name": "ggffgf",
-      "email": "gfgfgf",
-      "address": "fgfgf",
-      "id": 31
-    },
-    {
-      "name": "findus",
-      "email": "djdjs",
-      "address": "dsd",
-      "id": 32
-    },
-    {
-      "name": "test",
-      "email": "my",
-      "address": "ee",
-      "id": 33
-    },
-    {
-      "name": "test 2",
-      "email": "",
-      "address": "",
-      "id": 34
-    },
-    {
-      "name": "ffdfdfd",
-      "email": "fdfdf",
-      "address": "fdfdf",
-      "id": 35
+      "address": "dfdf",
+      "id": 8
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
