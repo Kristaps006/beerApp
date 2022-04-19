@@ -1,12 +1,5 @@
 {
-  "posts": [
-    {
-      "name": "dfd",
-      "email": "fdf",
-      "address": "dfdf",
-      "id": 8
-    }
-  ],
+  "posts": [],
   "comments": [],
   "profile": {
     "name": "typicode"

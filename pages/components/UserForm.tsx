@@ -18,6 +18,10 @@ export const UserForm = () => {
       })
       .json();
 
+  React.useEffect(() => {
+    console.log("rendering counter");
+  });
+
   const queryClient = useQueryClient();
 
   //Adding post to db

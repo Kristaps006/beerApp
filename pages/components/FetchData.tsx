@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   dehydrate,
+  QueryCache,
   QueryClient,
   useMutation,
   useQuery,
@@ -27,15 +28,13 @@ export const FetchData = () => {
   const queryClient = useQueryClient();
 
   const deleteId = useMutation(deleteData, {
-    //onSuccess: () => queryClient.invalidateQueries("names"),
-
-    onMutate: (data: any) => {
-      const prevUser = queryClient.getQueryData("name");
-      console.log(prevUser, "user");
-
-      // queryClient.setQueriesData("names", prevUser);
-      console.log(data, "prev");
+    onMutate: async (data) => {
+      await queryClient.cancelQueries("names"); //*Cancel any outgoing refetches (so they don't overwrite our optimistic update)
+      const prevValue = queryClient.getQueryData("names"); //* save previous value to return if mutations throws error
+      queryClient.setQueriesData("names", (old: any) => [...old, data]);
+      return prevValue;
     },
+    onSettled: () => queryClient.refetchQueries("names"),
   });
 
   return (
