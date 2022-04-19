@@ -38,11 +38,13 @@ export const UserForm = () => {
   };
 
   return (
-    <Form methods={methods} submit={onSubmit} className={styles.form}>
-      <Input type={"text"} name="name" children={"Name"} />
-      <Input type={"text"} name="email" children={"Email"} />
-      <Input type={"text"} name="address" children={"Address"} />
-      <Button type={"submit"} className={styles.button} children="submit" />
-    </Form>
+    <div className="formPlacement">
+      <Form methods={methods} submit={onSubmit} className={styles.form}>
+        <Input type={"text"} name="name" children={"Name"} />
+        <Input type={"text"} name="email" children={"Email"} />
+        <Input type={"text"} name="address" children={"Address"} />
+        <Button type={"submit"} className={styles.button} children="submit" />
+      </Form>
+    </div>
   );
 };

@@ -41,14 +41,16 @@ export const FetchData = () => {
     <>
       <ul>
         {data?.map(({ id, name, email, address }) => (
-          <>
-            <li key={id} style={{ marginTop: "20px" }}>
-              Name: {name}
-            </li>
-            <li>Email: {email}</li>
-            <li>Address: {address}</li>
-            <button onClick={() => deleteId.mutate(id)}>Delete</button>
-          </>
+          <div className="test">
+            <ul >
+              <li key={id} >
+                Name: {name}
+              </li>
+              <li>Email: {email}</li>
+              <li>Address: {address}</li>
+              <button onClick={() => deleteId.mutate(id)}>Delete</button>
+            </ul>
+          </div>
         ))}
       </ul>
     </>
@@ -65,3 +67,4 @@ export const getStaticProps = async () => {
     },
   };
 };
+
