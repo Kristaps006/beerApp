@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   dehydrate,
-  QueryCache,
   QueryClient,
   useMutation,
   useQuery,
   useQueryClient,
 } from "react-query";
 import ky from "ky";
+import { UpdateForm } from "./UpdateData";
 
 export interface User {
   [x: string]: any;
@@ -23,10 +23,19 @@ export const deleteData = (id: any) =>
   ky.delete(`http://localhost:3000/posts/${id}`).json<User>();
 
 export const FetchData = () => {
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [selectItem, setSelectedItem] = useState();
+  const onSelectedUser = (id) => {
+    setSelectedItem(id);
+    setShowUpdate(showUpdate => !showUpdate);
+  }
+
+  //fetching profile
   const { data, isFetching, isLoading } = useQuery("names", fetchingData, {});
 
   const queryClient = useQueryClient();
 
+  //deleting profile
   const deleteId = useMutation(deleteData, {
     onMutate: async (data) => {
       await queryClient.cancelQueries("names"); //*Cancel any outgoing refetches (so they don't overwrite our optimistic update)
@@ -49,6 +58,10 @@ export const FetchData = () => {
               <li>Email: {email}</li>
               <li>Address: {address}</li>
               <button onClick={() => deleteId.mutate(id)}>Delete</button>
+              <button onClick={() => (onSelectedUser(id))}>{showUpdate ? 'Cancel' : 'Update' }</button>
+              {showUpdate && selectItem === id ? (
+                <UpdateForm id={id}/>
+              ): null}
             </ul>
           </div>
         ))}
